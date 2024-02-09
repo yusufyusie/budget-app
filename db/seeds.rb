@@ -24,11 +24,4 @@ group_purchase1 = GroupPurchase.create(group: group2, purchase: purchase1)
 group_purchase1 = GroupPurchase.create(group: group2, purchase: purchase2)
 group_purchase1 = GroupPurchase.create(group: group3, purchase: purchase3)
 
-user = User.create(name: 'Zilola', email: 'zilolanazarova1994@gmail.com', password: '111111')
-# group1 = Group.create(user: user, name: 'Lunches', icon: 'https://i.pravatar.cc/300?img=1')
-# group2 = Group.create(user: user, name: 'Cosmetics', icon: 'https://i.pravatar.cc/300?img=2')
-# group3 = Group.create(user: user, name: 'Clothes', icon: 'https://i.pravatar.cc/300?img=3')
-
-# purchase1 = Purchase.create(author: user, name: 'Cream', amount: 10)
-# purchase2 = Purchase.create(author: user, name: 'Shempoo', amount: 20)
-# purchase3 = Purchase.create(author: user, name: 'New Dress', amount: 5)
+user = User.create(name: 'Yesuf', email: 'yesuf023@gmail.com', password: '111111')
