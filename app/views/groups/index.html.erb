@@ -1,0 +1,25 @@
+<!-- app/views/groups/index.html.erb -->
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Groups</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @groups.each do |group| %>
+      <div class="col">
+        <div class="card h-100">
+          <img src="<%= group.icon %>" class="card-img-top" alt="<%= group.name %> icon">
+          <div class="card-body">
+            <h5 class="card-title"><%= group.name %></h5>
+            <p class="card-text">Total: <%= group.transactions.sum(:amount) %></p>
+          </div>
+          <div class="card-footer">
+            <%= link_to 'View Transactions', group_transactions_path(group), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+    <%= link_to 'Add a new group', new_group_path, class: 'btn btn-success' %>
+  </div>
+</div>
