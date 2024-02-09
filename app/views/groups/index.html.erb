@@ -1,25 +1,38 @@
-<!-- app/views/groups/index.html.erb -->
-<div class="container py-5">
-  <h1 class="mb-4 text-center">Groups</h1>
-
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% @groups.each do |group| %>
-      <div class="col">
-        <div class="card h-100">
-          <img src="<%= group.icon %>" class="card-img-top" alt="<%= group.name %> icon">
-          <div class="card-body">
-            <h5 class="card-title"><%= group.name %></h5>
-            <p class="card-text">Total: <%= group.transactions.sum(:amount) %></p>
-          </div>
-          <div class="card-footer">
-            <%= link_to 'View Transactions', group_transactions_path(group), class: 'btn btn-primary' %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<header id="homepage">
+  <h1>categories</h1>
+  <div id="whatever">
+    <%= inline_svg_tag "menu.svg", class: "burger-menu" %>
   </div>
+</header>
 
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-    <%= link_to 'Add a new group', new_group_path, class: 'btn btn-success' %>
-  </div>
-</div>
+<main class="with_actions">
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+
+  <% if @groups.empty? %>
+    <div class="empty">
+      <p>You have not added any categories.</p>
+    </div>
+  <% else %>
+    <ul class="group_list">
+      <% @groups.each do |group| %>
+        <li>
+          <%= link_to group_purchases_url(group), data: { turbo: false }, class: 'item' do %>
+            <%= image_tag(check_url(group.icon), class: 'icon', alt: 'group_icon') %>
+            <div class="group_info">
+              <span class="name"><%= group.name %></span>
+               <span class="amount">$<%= total_amount(group) %></span>
+              <span class="date"><%= group.created_at.strftime('%d %b %Y') %></span>
+            </div>
+          <% end %>
+          <%= link_to "add transaction", new_group_purchase_path(group), class: "btn", data: { turbo: false }  %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</main>
+
+<section id="actions">
+  <%= link_to 'Add a new category', new_group_path, class: 'btn', style: "background-color: #008000; color: #FFFFFF;" %>
+</section>

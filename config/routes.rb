@@ -1,12 +1,9 @@
+# config/routes.rb
 Rails.application.routes.draw do
-  get 'groups/index'
   # Dashboard route
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 
   devise_for :users
-
-  # Categories route
-  get '/groups', to: 'groups#index', as: 'groups'
 
   # Home route
   get 'home/index'
@@ -27,9 +24,9 @@ Rails.application.routes.draw do
   # Resourceful route for articles
   resources :articles
 
-  # Nested routes for categories under groups
-  resources :groups do
-    resources :categories
+  # Resourceful routes for groups, categories, and purchases
+  resources :groups, only: %i[index new create edit update destroy] do
+    resources :purchases
   end
 
   # Other custom routes can go here

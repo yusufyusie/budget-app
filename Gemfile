@@ -11,6 +11,8 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'inline_svg'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
