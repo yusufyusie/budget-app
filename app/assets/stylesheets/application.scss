@@ -20,20 +20,6 @@
  @import "menu";
  @import "form";
 
- 
-   body {
-     font-family: Arial, sans-serif;
-   }
-   .navbar {
-     background-color: #f8f9fa;
-   }
-   .navbar-brand {
-     color: #333;
-   }
-   .nav-link {
-     color: #333;
-   }
-
    
 $blue: #3b74b4;
 $white: #fff;
@@ -56,9 +42,19 @@ body {
   font-weight: 100;
   display: flex;
   flex-direction: column;
-  /* stylelint-disable-next-line */
   min-height: 100dvh;
   min-width: 300px;
+}
+
+
+.navbar {
+  background-color: #f8f9fa;
+}
+.navbar-brand {
+  color: #333;
+}
+.nav-link {
+  color: #333;
 }
 
 a {
