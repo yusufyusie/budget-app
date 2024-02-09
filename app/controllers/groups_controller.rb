@@ -1,7 +1,4 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_group, only: [:edit, :update, :destroy]
-
   def index
     @groups = current_user.groups
   end
@@ -22,9 +19,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:id])
   end
 
   def update
+    @group = Group.find(params[:id])
     if @group.update(group_params)
       flash[:success] = 'Category updated successfully!'
       redirect_to group_purchases_path(@group)
@@ -35,6 +34,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    @group = Group.find(params[:id])
     if @group.destroy
       flash[:success] = 'Category was deleted successfully!'
       redirect_to groups_url
@@ -45,10 +45,6 @@ class GroupsController < ApplicationController
   end
 
   private
-
-  def set_group
-    @group = Group.find(params[:id])
-  end
 
   def group_params
     params.require(:group).permit(:name, :icon)
