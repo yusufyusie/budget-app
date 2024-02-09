@@ -11,6 +11,27 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Your App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to 'Home', dashboard_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Categories', categories_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= form_with url: logout_path, method: :delete, class: 'nav-item' do %>
+              <%= submit_tag 'Logout', class: 'nav-link btn btn-link' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
