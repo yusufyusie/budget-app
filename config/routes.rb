@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_for :models
-  get 'categories/index'
+
+  # Categories route
+  get '/categories', to: 'categories#index', as: 'categories'
+
+  # Home route
   get 'home/index'
-  # Root route
   root 'home#index'
 
   # User registration routes
@@ -15,8 +18,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Resourceful route for articles
