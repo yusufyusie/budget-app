@@ -16,3 +16,17 @@
  @import "../../../node_modules/bootstrap/scss/bootstrap";
  @import "bootstrap/dist/css/bootstrap";
  @import "index";
+
+ 
+   body {
+     font-family: Arial, sans-serif;
+   }
+   .navbar {
+     background-color: #f8f9fa;
+   }
+   .navbar-brand {
+     color: #333;
+   }
+   .nav-link {
+     color: #333;
+   }
