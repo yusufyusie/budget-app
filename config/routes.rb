@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Dashboard route
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+
   devise_for :users
   devise_for :models
 
