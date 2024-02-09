@@ -57,6 +57,23 @@ body {
   color: #333;
 }
 
+.modal-content {
+  background-color: $blue;
+  min-height: 100dvh;
+
+  .modal-title {
+    color: $white;
+  }
+
+  .nav-link {
+    color: $white;
+
+    &:hover {
+      color: darken($white, 10%);
+    }
+  }
+}
+
 a {
   text-decoration: none;
 }
