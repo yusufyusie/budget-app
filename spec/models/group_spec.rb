@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   let(:user) { User.create(name: 'Tom', email: 'tom@example.com', password: 'topsecret') }
-  let(:valid_attributes) { { user: user, name: 'Food', icon: 'missing_avatar.png' } }
+  let(:valid_attributes) { { user:, name: 'Food', icon: 'missing_avatar.png' } }
 
   describe 'validations' do
     subject { Group.new(valid_attributes) }

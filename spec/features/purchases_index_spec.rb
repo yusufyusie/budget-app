@@ -33,7 +33,7 @@ RSpec.describe 'When I open Purchases index page', type: :feature do
   end
 
   it 'shows the total amount for the Group' do
-    expect(page).to have_content("$10.0")
+    expect(page).to have_content('$10.0')
   end
 
   it 'shows the Add Transaction button' do
