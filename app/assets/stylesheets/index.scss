@@ -21,6 +21,7 @@ h1 {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+
   &:hover {
     background-color: #0056b3;
     color: white;
@@ -39,6 +40,7 @@ h1 {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+
   &:hover {
     background-color: #5a6268;
     color: white;
@@ -74,4 +76,3 @@ h1 {
 .custom-btn:hover {
   background-color: #0056b3;
 }
-
