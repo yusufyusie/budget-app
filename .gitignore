@@ -30,7 +30,10 @@ node_modules/
 !/tmp/storage/
 !/tmp/storage/.keep
 
-/public/assets
+# Ignore everything in the public/assets directory
+public/assets/*
+# Except for the manifest file
+!public/assets/.sprockets-manifest-*.json
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
