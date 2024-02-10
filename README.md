@@ -70,6 +70,13 @@ The **SpendSmart** keeps track of all your expences associated with catogories. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- The Live Demo is available [here](https://budget-app-riuo.onrender.com/)
+- The Live vedio is available [here](https://www.loom.com/share/6aaf065b886b417a9cdf7e59d841e766?sid=bd3ccbee-cbad-4409-8996-9a9cee47a511/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
