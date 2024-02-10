@@ -5,6 +5,18 @@
 
 Rails.application.config.assets.version = "1.0"
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'images')
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( stimulus.min.js )
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( application.js controllers/application.js )
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( @popperjs--core.js controllers/hello_controller.js )
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( currency.svg application.css )
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( stimulus-loading.js controllers/index.js )
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w( application.js turbo.min.js currency.svg stimulus-loading.js controllers/hello_controller.js controllers/application.js )
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
