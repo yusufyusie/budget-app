@@ -20,25 +20,29 @@ RSpec.describe User, type: :model do
   end
 
   context '#associations' do
-    let(:user) { User.create(valid_attributes) }
-    let(:purchase) { Purchase.create(author: user, name: 'Apples', amount: 2) }
-    let(:group) { Group.create(user: user, name: 'Food', icon: 'missing_avatar.png') }
+    before do
+      @user = User.create(valid_attributes)
+    end
 
     it 'has many purchases' do
-      expect(user.purchases).to include(purchase)
+      purchase = Purchase.create(author: @user, name: 'Apples', amount: 2)
+      expect(@user.purchases).to include(purchase)
     end
 
     it 'has many groups' do
-      expect(user.groups).to include(group)
+      group = Group.create(user: @user, name: 'Food', icon: 'missing_avatar.png')
+      expect(@user.groups).to include(group)
     end
 
     it 'deletes associated purchases when deleted' do
-      user.destroy
+      purchase = Purchase.create(author: @user, name: 'Apples', amount: 2)
+      @user.destroy
       expect(Purchase.find_by(id: purchase.id)).to be_nil
     end
 
     it 'deletes associated groups when deleted' do
-      user.destroy
+      group = Group.create(user: @user, name: 'Food', icon: 'missing_avatar.png')
+      @user.destroy
       expect(Group.find_by(id: group.id)).to be_nil
     end
   end
