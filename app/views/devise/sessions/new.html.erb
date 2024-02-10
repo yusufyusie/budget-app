@@ -5,6 +5,12 @@
         <div class="card-body">
           <h2 class="text-center mb-4">Log in</h2>
 
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name == 'notice' ? 'success' : 'danger' %>">
+              <%= msg %>
+            </div>
+          <% end %>
+
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'mt-4' }) do |f| %>
             <div class="mb-3">
               <%= f.label :email, class: 'form-label' %>
