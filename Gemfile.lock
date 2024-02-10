@@ -131,6 +131,10 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hotwire-rails (0.1.3)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -348,6 +352,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   fuubar
+  hotwire-rails
   importmap-rails
   inline_svg
   jbuilder

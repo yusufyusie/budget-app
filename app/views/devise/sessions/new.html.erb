@@ -11,7 +11,7 @@
             </div>
           <% end %>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'mt-4' }) do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'mt-4' }, data: { turbo: "false" }) do |f| %>
             <div class="mb-3">
               <%= f.label :email, class: 'form-label' %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
