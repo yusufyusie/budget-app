@@ -7,7 +7,6 @@ RSpec.describe Group, type: :model do
   describe 'validations' do
     subject { Group.new(valid_attributes) }
 
-
     context 'name' do
       it { is_expected.to validate_presence_of(:name) }
       it { is_expected.to validate_length_of(:name).is_at_most(36) }
