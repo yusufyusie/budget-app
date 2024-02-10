@@ -75,10 +75,10 @@ group :test do
   gem 'capybara'
   gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', '~> 4.0'
+  gem 'shoulda-matchers', '~> 4.5.1'
   gem 'webdrivers'
+  gem 'fuubar'
+  gem 'rails-controller-testing'
 end
 
-gem 'fuubar'
 
-gem 'rails-controller-testing'
