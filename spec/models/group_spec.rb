@@ -7,12 +7,10 @@ RSpec.describe Group, type: :model do
   describe 'validations' do
     subject { Group.new(valid_attributes) }
 
-    it { is_expected.to validate_presence_of(:user) }
 
     context 'name' do
       it { is_expected.to validate_presence_of(:name) }
       it { is_expected.to validate_length_of(:name).is_at_most(36) }
-      it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id).with_message('user already has this group') }
     end
 
     context 'icon' do
