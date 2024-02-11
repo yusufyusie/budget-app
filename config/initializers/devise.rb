@@ -8,18 +8,13 @@
 #
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-# config/initializers/devise.rb
 Devise.setup do |config|
-  # ...
-  config.responder.error_status = :unprocessable_entity
-  config.responder.redirect_status = :see_other
-  # ...
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '44522a77d6c426a0ac18665766665762d6cdafc0c825fd654a9b594a9106848b15e0408108d9bc88bdffb7fdf35f23b467d36e5f9c919625c855f288ccaa42d0'
+  # config.secret_key = '611ce126f264c900b40a8f8c4b3153227b3855a0b68b583d4e2bcc279cc64767415f243b83b2b51f87ff9151e36e9bfc22ffafb4af30ec055c48439be438ffa9'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -84,7 +79,7 @@ Devise.setup do |config|
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
-  # config.http_authenticatable = false
+  config.http_authenticatable = [:database]
 
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -131,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '3264294a8a77ba644764036dfbe4e1ff66d80d114ea0d4e8cfa6ca247a0d81ffd0ef6455aa4b5a926f341e2e0bbeb23b981a8ceb341e4547569da56f2ec2e37d'
+  # config.pepper = 'fe3dd0d368ac7c7459a76505138ee8bc98320f677c6bdf10742b35b5cd66b308e098705cb1628433e85b7939a4de33b166798df2c6dff71141d55705d891e74c'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -271,7 +266,6 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  # config.sign_out_via = :delete
   config.sign_out_via = :get
 
   # ==> OmniAuth
