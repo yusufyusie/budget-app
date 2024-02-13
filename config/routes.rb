@@ -1,5 +1,12 @@
+# config/routes.rb
 Rails.application.routes.draw do
-  # Root route
+  # Dashboard route
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+
+  devise_for :users
+
+  # Home route
+  get 'home/index'
   root 'home#index'
 
   # User registration routes
@@ -11,12 +18,16 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Resourceful route for articles
   resources :articles
+
+  # Resourceful routes for groups, categories, and purchases
+  resources :groups, only: %i[index new create edit update destroy] do
+    resources :purchases
+  end
 
   # Other custom routes can go here
   # ...

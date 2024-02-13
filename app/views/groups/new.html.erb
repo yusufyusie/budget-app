@@ -1,0 +1,29 @@
+<header id="homepage">
+  <%= link_to groups_path, data: { turbo: false }  do %>
+    <%= inline_svg_tag "chevron_left.svg", class: "chevron" %>
+  <% end %>
+  <h1>new category</h1>
+</header>
+
+<main class="container mt-5">
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "alert alert-#{name == 'notice' ? 'info' : 'danger'}" %>
+  <% end -%>
+  <%= form_with model: @group, class: "form bg-white p-4 rounded shadow-sm" do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, "Name", class: "form-label" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Clothes", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :icon, "Icon link *", class: "form-label" %>
+      <%= f.text_field :icon, autofocus: true, autocomplete: "icon", placeholder: "https://i.pravatar.cc/300?img=5", class: "form-control" %>
+    </div>
+
+    <p class="form-text text-muted">* Please, provide a valid link that starts with <strong>'https:'</strong> and ends with <strong>'png/gif/jpg'</strong>.</p>
+
+    <div class="actions">
+      <%= f.submit "Add Category", data: { turbo: false }, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</main>

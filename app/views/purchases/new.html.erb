@@ -1,0 +1,35 @@
+<header id="homepage">
+  <%= link_to group_purchases_path(params[:group_id]), data: { turbo: false }  do %>
+    <%= inline_svg_tag "chevron_left.svg", class: "chevron" %>
+  <% end %>
+  <h1>new transaction</h1>
+</header>
+
+<main class="container mt-5">
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "alert alert-#{name == 'notice' ? 'info' : 'danger'}" %>
+  <% end -%>
+  
+  <%= form_with(url: group_purchases_path, model: @purchase, class: "form bg-white p-4 rounded shadow-sm") do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, "Name", class: "form-label" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Bodyshop cream", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :amount, "Amount, $", class: "form-label" %>
+      <%= f.text_field :amount, autofocus: true, autocomplete: "amount", placeholder: "15", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :group_ids, "Categories", class: "form-label" %><br />
+      <%= f.collection_check_boxes :group_ids, current_user.groups, :id, :name, :include_hidden => false, class: "form-check-input" %>
+      <span>No matching category?</span>
+      <%= link_to "Add a new category", new_group_path, data: { turbo: false }, class: "static"  %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add Transaction", data: { turbo: false }, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</main>

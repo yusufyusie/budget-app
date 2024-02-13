@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 text-center">
+      <h1 class="display-4 mb-4 text-primary">Welcome to Budget App</h1>
+      <p class="lead">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btnn btnn-primary mt-3 mb-4' %> or
+        <%= link_to 'Log In', new_user_session_path, class: 'btnn btnn-secondary mt-3 mb-4' %>
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 text-center">
+      <%= image_tag(asset_path("currency.svg"), alt: "Budget App", class: "img-fluid custom-img") %>
+    </div>
+  </div>
+</div>

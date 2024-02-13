@@ -1,0 +1,50 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Sign up</h2>
+
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name == 'notice' ? 'success' : 'danger' %>">
+              <%= msg %>
+            </div>
+          <% end %>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'mt-4' }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="mb-3">
+              <%= f.label :name, class: 'form-label' %>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :email, class: 'form-label' %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :password, class: 'form-label' %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :password_confirmation, class: 'form-label' %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Sign up", class: 'bttn bttn-primary custom-btn' %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
